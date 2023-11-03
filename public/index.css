@@ -1,0 +1,65 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+#root{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+#sidebar{
+  width:20vw;
+  height:100vh;
+  background-color: gray;
+  display:flex;
+  flex-direction: column;
+}
+#new{
+  width:20vw;
+  height:15vh;
+  background-color: white;
+}
+.sbm{
+  width:3vw;
+  height:3vw
+ 
+}
+#notetext{
+  width:20vw;
+  height:70vh;
+  background-color: aqua;
+}
+#info{
+  width:20vw;
+  height:15vh;
+  background-color: bisque;
+}
+#main{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height:100vh;
+  width:50vw;
+  background-color: skyblue;
+  margin-left:10vw;
+}
+#noteContainer{
+  width:45vw;
+  height:80vh;
+  margin:30px;
+}
+#noteContent{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:45vw;
+  height:10vh;
+  margin:30px;
+}
+#doneButton{
+  display:absolute;
+  width:4vw;
+  height:4vw;
+  margin-left:40vw;
+}
