@@ -2,6 +2,7 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
+  font-family: Georgia;
 }
 #root{
   width: 100vw;
@@ -79,7 +80,7 @@
 #noteContainer{
   width:45vw;
   height:80vh;
-  margin:30px;
+  margin:2.5vw;
 }
 #noteContent{
   display:flex;
@@ -87,21 +88,21 @@
   align-items: center;
   width:45vw;
   height:10vh;
-  margin:30px;
+  margin:2.5vw;
+
   font-family:Arial, Helvetica, sans-serif;
 }
 
 #doneButton{
-  display:absolute;
-  width:4vw;
-  height:4vw;
-  margin-left:40vw;
+  position: absolute;
+  width:3vw;
+  height:3vw;
+  left:72.5vw;
+  top:90vh;
 }
 #deleteButton{
-  display:absolute;
-  width:4vw;
-  height:4vw;
-  margin-left:45vw;
+  width:5vw;
+  height:3vw;
 }
 
 /* 드롭다운 버튼 스타일 */
@@ -152,4 +153,8 @@
   position: relative;
   z-index: 4;
   
+}
+
+textarea::placeholder {
+  font-size:36px;
 }

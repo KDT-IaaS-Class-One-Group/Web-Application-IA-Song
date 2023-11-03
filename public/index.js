@@ -43,9 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-
-
-
   function generateUniqueId() {
     const random = Math.floor(Math.random() * 100); 
     return `note-${random}`;
@@ -68,23 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function deleteNote() {
-
-fetch(`/api/notes/delete`, {
-  method: 'DELETE',
-})
-  .then((response) => {
-   
-      const noteContainer = document.getElementById('noteContainer');
-
+    fetch(`/api/notes/delete`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        const noteContainer = document.getElementById('noteContainer');
         while(noteContainer.hasChildNodes()){
         noteContainer.removeChild(noteContainer.firstChild);}
-      
-    
-  })
-  .catch((error) => {
-    console.error('An error occurred while deleting the note:', error);
-  });
-}
+      })
+      .catch((error) => {
+        console.error('An error occurred while deleting the note:', error);
+      })
+    }
+
   fetch('/api/notes')
     .then((response) => response.json())
     .then((notes) => {
