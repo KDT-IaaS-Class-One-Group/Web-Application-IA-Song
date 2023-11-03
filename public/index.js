@@ -73,13 +73,12 @@ fetch(`/api/notes/delete`, {
   method: 'DELETE',
 })
   .then((response) => {
-    if (response.status === 204) {
+   
       const noteContainer = document.getElementById('noteContainer');
-      const noteBox = document.querySelector(".note-box");
 
         while(noteContainer.hasChildNodes()){
-        noteContainer.removeChild(noteBox);}
-      }
+        noteContainer.removeChild(noteContainer.firstChild);}
+      
     
   })
   .catch((error) => {
