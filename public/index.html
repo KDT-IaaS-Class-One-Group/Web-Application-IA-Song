@@ -5,30 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css" type="text/css">
-  <title>Document</title>
+  <script src="https://kit.fontawesome.com/82b8c79a8f.js" crossorigin="anonymous"></script>
+  <title>gpt practice</title>
 </head>
 <body>
   <div id="root">
     <div id="sidebar">
       <div id="new"> 
-        <div class="sbm">
-        <button class="dropbtn">메뉴</button>
+        <div class="logo">🌐</div>
+        <div id="sbm">
+        <button class="dropbtn"><i class="fa-solid fa-bars fa-2x"></i></button>
         <div class="dropdown-content">
-            <a href="#">메뉴 항목 1</a>
-            <a href="#">메뉴 항목 2</a>
-            <a href="#">메뉴 항목 3</a>
-            <a href="#">메뉴 항목 4</a>
-            <a href="#">메뉴 항목 5</a>
+            <a href="#">"Home"</a>
+            <a href="#">"Profile"</a>
+            <a href="#">"Settings"</a>
+            <a href="#">"Logout</a>
+        </div>
         </div>
       </div>
       <div id="notetext"></div>
-      <div id="info"></div>
+      <div id="info">
+        <div>송영준</div>
+        <div>Online&#128994;</div>
+        <div>👤</div>
+      </div>
     </div>
     <div id="main">
       <div id="noteContainer"></div>
-      <textarea id="noteContent" placeholder="내용" rows="4"></textarea><button id="doneButton">Done</button>
+      <textarea id="noteContent" placeholder="내용" rows="4"></textarea>
+      <button id="doneButton">&#9992;</button>
+      <button id="deleteButton">NewChat</button>
     </div>
   </div>
   <script src="index.js" type="application/javascript"></script>  
+  </script>
 </body>
 </html>
