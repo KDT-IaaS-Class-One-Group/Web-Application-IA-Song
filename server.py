@@ -46,6 +46,8 @@ def create_note():
 def delete_all_notes():
     global notes
     notes = []
+    with open('notes.json', 'w') as file:
+        json.dump(notes, file, indent=2)
     return jsonify({'message': 'All notes deleted successfully'})
 
 if __name__ == '__main__':
