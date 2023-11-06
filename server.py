@@ -9,7 +9,7 @@ notes_file_path = 'notes.json'
 if not os.path.exists(notes_file_path):
     with open(notes_file_path, 'w') as file:
         json.dump([], file)
-
+notes = []
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -40,7 +40,13 @@ def create_note():
     with open(notes_file_path, 'w') as file:
         json.dump(notes, file, indent=2)
 
-    return jsonify(new_note), 201        
+    return jsonify(new_note), 201
+
+@app.route('/api/notes/delete', methods=['DELETE'])
+def delete_all_notes():
+    global notes
+    notes = []
+    return jsonify({'message': 'All notes deleted successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)
