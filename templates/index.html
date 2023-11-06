@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+  <script src="https://kit.fontawesome.com/82b8c79a8f.js" crossorigin="anonymous"></script>
+  <title>gpt practice</title>
+</head>
+<body>
+  <div id="root">
+    <div id="sidebar">
+      <div id="new"> 
+        <div class="logo">🌐</div>
+        <button id="deleteButton">NewChat</button>
+        <div id="sbm">
+        <button class="dropbtn"><i class="fa-solid fa-bars fa-2x"></i></button>
+        <div class="dropdown-content">
+            <a href="#">"Home"</a>
+            <a href="#">"Profile"</a>
+            <a href="#">"Settings"</a>
+            <a href="#">"Logout</a>
+        </div>
+        </div>
+      </div>
+      <div id="notetext"></div>
+      <div id="info">
+        <div>송영준</div>
+        <div>Online&#128994;</div>
+        <div>👤</div>
+      </div>
+    </div>
+    <div id="main">
+      <div id="noteContainer"></div>
+      <textarea id="noteContent" placeholder="Send a message" rows="2"></textarea>
+      <button id="doneButton">&#9992;</button>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/index.js') }}" type="application/javascript"></script>  
+  </script>
+</body>
+</html>
