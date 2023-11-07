@@ -2,10 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const noteContent = document.getElementById('noteContent');
   const doneButton = document.getElementById('doneButton');
   const noteContainer = document.getElementById('noteContainer');
+  
   const now = new Date();	
   const hours = now.getHours();	
   const avatar= "👤"
   const deleteButton= document.getElementById("deleteButton")
+
+
+  // 이부분 
   doneButton.addEventListener('click', () => {
     const content = noteContent.value;
     if (content) {
@@ -59,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     noteBox.setAttribute('data-note-id', note.id);
     noteContainer.appendChild(noteBox);
   }
+
+ 
   
   deleteButton.addEventListener('click', () => {
     deleteNote();
@@ -72,12 +78,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const noteContainer = document.getElementById('noteContainer');
         while(noteContainer.hasChildNodes()){
         noteContainer.removeChild(noteContainer.firstChild);}
+        return response.json()
       })
+      .then((data) => {
+        if (data.newJsonFilePath) {
+          // 2. 클라이언트에서 가져온 파일 위치 또는 파일명을 사용하여 JSON 파일을 읽어옴
+          fetch(`/api/notes/getDeletedNotes?file=${data.newJsonFilePath}`)
+            .then((response) => response.json())
+            .then((newData) => {
+              // 3. 읽어온 JSON 데이터를 사용하여 HTML의 div 박스에 데이터를 동적으로 나타냄
+              const notetext = document.getElementById('notetext')
+                // 데이터를 div 박스에 추가
+                const div = document.createElement('div');
+                div.className = 'sidebox'
+                const combinedContent = newData.map(item => item.content).join(' ')
+                div.style.color = "white"
+                div.textContent = `👤${combinedContent}` // 예시: 데이터의 내용을 텍스트로 표시
+                notetext.appendChild(div);
+            })
+          }
+        })
       .catch((error) => {
         console.error('An error occurred while deleting the note:', error);
       })
     }
 
+    // fetch('/api/notes/getDeletedNotes')
+    // .then((response) => response.json())
+    // .then((allDeletedNotes) => {
+    // const notetext = document.getElementById('notetext');
+    //     const div = document.createElement('div');
+    //     div.className = 'sidebox';
+    //     const combinedContent = allDeletedNotes.map(item => item.content).join(' ')
+    //     div.style.color = 'white';
+    //     div.textContent = `👤${combinedContent}`; // 예시: 데이터의 내용을 텍스트로 표시
+    //     notetext.appendChild(div);
+    //   });
+    
+    
   fetch('/api/notes')
     .then((response) => response.json())
     .then((notes) => {
